@@ -2,7 +2,7 @@ version: '3.8'
 
 volumes:
   subscription-db-data:
-
+  subscription_maven_cache:
 networks:
   subscription-network:
     driver: bridge
@@ -16,6 +16,8 @@ services:
     build: .
     depends_on:
       - subscription-db
+    volumes:
+      - subscription_maven_cache:/root/.m2:Z
     environment:
       - DB_HOST=${SUBSCRIPTION_DB_HOST:-subscription-db}
       - DB_PORT=${SUBSCRIPTION_DB_PORT:-5432}
