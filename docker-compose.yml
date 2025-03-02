@@ -1,0 +1,47 @@
+version: '3.8'
+
+volumes:
+  subscription-db-data:
+  subscription_maven_cache:
+networks:
+  subscription-network:
+    driver: bridge
+
+
+services:
+
+  subscription:
+    container_name: subscription
+    hostname: subscription
+    build: .
+    depends_on:
+      - subscription-db
+    volumes:
+      - subscription_maven_cache:/root/.m2:Z
+    environment:
+      - DB_HOST=${SUBSCRIPTION_DB_HOST:-subscription-db}
+      - DB_PORT=${SUBSCRIPTION_DB_PORT:-5432}
+      - DB_NAME=${SUBSCRIPTION_DB_NAME:-subscription}
+      - DB_USERNAME=${SUBSCRIPTION_DB_USERNAME:-postgres}
+      - DB_PASSWORD=${SUBSCRIPTION_DB_PASSWORD:-admin}
+    restart: unless-stopped
+    ports:
+      - ${SUBSCRIPTION_PORT:-8080}:8080
+    networks:
+      - subscription-network
+
+  subscription-db:
+    container_name: subscription-db
+    hostname: subscription-db
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=${SUBSCRIPTION_DB_USERNAME:-postgres}
+      - POSTGRES_PASSWORD=${SUBSCRIPTION_DB_PASSWORD:-admin}
+      - POSTGRES_DB=${SUBSCRIPTION_DB_NAME:-subscription}
+    volumes:
+      - subscription-db-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    ports:
+      - ${SUBSCRIPTION_DB_PORT:-5432}:5432
+    networks:
+      - subscription-network
