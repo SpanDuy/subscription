@@ -11,4 +11,16 @@
 
 ## Запуск приложения
 
-### Локально
+### Docker
+
+Linux
+
+```bash
+docker compose up -d
+```
+
+Windows
+
+```bash
+docker-compose up -d
+```
