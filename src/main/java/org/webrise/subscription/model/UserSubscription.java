@@ -2,6 +2,7 @@ package org.webrise.subscription.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
@@ -10,6 +11,7 @@ import java.time.ZonedDateTime;
 @Table(name = "user_subscriptions")
 @Getter
 @Setter
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserSubscription extends ExtendedEntity {

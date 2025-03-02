@@ -29,7 +29,7 @@ public class Subscription extends ExtendedEntity {
     @Column(name = "duration_days", nullable = false)
     private Integer durationDays;
     
-    @OneToMany(mappedBy = "subscription")
+    @OneToMany(mappedBy = "subscription", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private Set<UserSubscription> userSubscriptions = new HashSet<>();
 } 

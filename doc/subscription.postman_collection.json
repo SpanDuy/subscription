@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "dec08675-7140-4c8b-b2d7-dc47eaf67925",
+		"name": "subscription",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34464527",
+		"_collection_link": "https://ghhjmkl.postman.co/workspace/ghhjmkl-Workspace~a2d63794-c138-40b6-8672-4fddfad4707c/collection/34464527-dec08675-7140-4c8b-b2d7-dc47eaf67925?action=share&source=collection_link&creator=34464527"
+	},
+	"item": [
+		{
+			"name": "SubscriptionController",
+			"item": [
+				{
+					"name": "/subscriptions",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "/subscriptions/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{subscription-host}}/api/subscriptions/1",
+							"host": [
+								"{{subscription-host}}"
+							],
+							"path": [
+								"api",
+								"subscriptions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/subscriptions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{subscription-host}}/api/subscriptions",
+							"host": [
+								"{{subscription-host}}"
+							],
+							"path": [
+								"api",
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/subscriptions/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{subscription-host}}/api/subscriptions/1",
+							"host": [
+								"{{subscription-host}}"
+							],
+							"path": [
+								"api",
+								"subscriptions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/subscriptions/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{subscription-host}}/api/subscriptions/1",
+							"host": [
+								"{{subscription-host}}"
+							],
+							"path": [
+								"api",
+								"subscriptions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/subscriptions/top",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{subscription-host}}/api/subscriptions/top",
+							"host": [
+								"{{subscription-host}}"
+							],
+							"path": [
+								"api",
+								"subscriptions",
+								"top"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserController",
+			"item": [
+				{
+					"name": "/api/users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{subscription-host}}/api/users",
+							"host": [
+								"{{subscription-host}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/users/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{subscription-host}}/api/users/1",
+							"host": [
+								"{{subscription-host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/users/email/{email}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{subscription-host}}/api/users/email/vladk@gmail.com",
+							"host": [
+								"{{subscription-host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"email",
+								"vladk@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{subscription-host}}/api/users",
+							"host": [
+								"{{subscription-host}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/users",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{subscription-host}}/api/users/{id}",
+							"host": [
+								"{{subscription-host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/users/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{subscription-host}}/api/users/1",
+							"host": [
+								"{{subscription-host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/users/{id}/subscriptions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{subscription-host}}/api/users/1/subscriptions",
+							"host": [
+								"{{subscription-host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1",
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/users/{id}/subscriptions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{subscription-host}}/api/users/1/subscriptions",
+							"host": [
+								"{{subscription-host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1",
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/users/{id}/subscriptions/{sub_id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{subscription-host}}/api/users/1/subscriptions/{sub_id}",
+							"host": [
+								"{{subscription-host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1",
+								"subscriptions",
+								"{sub_id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "subscription-host",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

@@ -21,29 +21,29 @@ public class LoggingAspect {
 
     @Before("controllerMethods()")
     public void logBeforeController(JoinPoint joinPoint) {
-        log.info("Вызов контроллера: {} с аргументами: {}", 
+        log.info("Controller call: {} with arguments: {}", 
                 joinPoint.getSignature().toShortString(), 
                 Arrays.toString(joinPoint.getArgs()));
     }
 
     @AfterReturning(pointcut = "controllerMethods()", returning = "result")
     public void logAfterController(JoinPoint joinPoint, Object result) {
-        log.info("Контроллер {} вернул: {}", 
+        log.info("Controller {} returned: {}", 
                 joinPoint.getSignature().toShortString(), 
                 result);
     }
 
     @Around("serviceMethods()")
     public Object logAroundService(ProceedingJoinPoint joinPoint) throws Throwable {
-        log.debug("Начало выполнения сервиса: {}", joinPoint.getSignature().toShortString());
+        log.info("Service execution started: {}", joinPoint.getSignature().toShortString());
         try {
             long start = System.currentTimeMillis();
             Object result = joinPoint.proceed();
             long executionTime = System.currentTimeMillis() - start;
-            log.debug("Сервис {} выполнен за {} мс", joinPoint.getSignature().toShortString(), executionTime);
+            log.info("Service {} completed in {} ms", joinPoint.getSignature().toShortString(), executionTime);
             return result;
         } catch (Exception e) {
-            log.error("Ошибка в сервисе {}: {}", joinPoint.getSignature().toShortString(), e.getMessage());
+            log.error("Error in service {}: {}", joinPoint.getSignature().toShortString(), e.getMessage());
             throw e;
         }
     }

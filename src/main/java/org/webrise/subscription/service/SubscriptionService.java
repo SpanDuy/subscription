@@ -54,4 +54,8 @@ public class SubscriptionService {
     public List<Subscription> findByNameContaining(String name) {
         return subscriptionRepository.findByNameContainingIgnoreCase(name);
     }
+
+    public List<Subscription> getTopSubscriptions(Integer limit) {
+        return subscriptionRepository.findTopPopular(limit);
+    }
 } 

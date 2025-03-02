@@ -8,6 +8,7 @@ public record SubscriptionDto(
     LocalDateTime createdAt,
     LocalDateTime updatedAt,
     String name,
+    String description,
     BigDecimal price,
     Integer durationDays
 ) {

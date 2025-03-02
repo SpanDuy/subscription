@@ -5,28 +5,28 @@ public record ResponseDto<T>(
         String message,
         ResponseStatus status
 ) {
-    // Статический фабричный метод для создания успешного ответа (только с данными)
+    // Static factory method for creating successful response (with data only)
     public static <T> ResponseDto<T> success(T data) {
         return new ResponseDto<>(data, null, ResponseStatus.SUCCESS);
     }
 
-    // Статический метод для создания успешного ответа с сообщением
+    // Static method for creating successful response with message
     public static <T> ResponseDto<T> success(T data, String message) {
         return new ResponseDto<>(data, message, ResponseStatus.SUCCESS);
     }
 
-    // Статический метод для создания ответа с ошибкой
+    // Static method for creating error response
     public static <T> ResponseDto<T> error(String message) {
         return new ResponseDto<>(null, message, ResponseStatus.ERROR);
     }
 
-    // Статический метод для создания ответа с предупреждением
+    // Static method for creating warning response
     public static <T> ResponseDto<T> warning(T data, String message) {
         return new ResponseDto<>(data, message, ResponseStatus.WARNING);
     }
     
-    // Компактный конструктор для установки значения по умолчанию, 
-    // если status равен null
+    // Compact constructor for setting default value
+    // if status is null
     public ResponseDto {
         if (status == null) {
             status = ResponseStatus.SUCCESS;

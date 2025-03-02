@@ -22,7 +22,6 @@ public class User extends ExtendedEntity {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
     
-    @OneToMany(mappedBy = "user")
-    @Builder.Default
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<UserSubscription> subscriptions = new HashSet<>();
 } 

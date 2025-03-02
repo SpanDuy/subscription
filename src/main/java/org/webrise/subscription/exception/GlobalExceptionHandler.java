@@ -37,4 +37,11 @@ public class GlobalExceptionHandler {
             .collect(Collectors.joining(", "));
         return ResponseDto.error(errorMessage);
     }
+
+    @ExceptionHandler(ConflictException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ResponseDto<String> handleConflictException(ConflictException e) {
+        e.printStackTrace();
+        return ResponseDto.error(e.getMessage());
+    }
 }

@@ -13,7 +13,7 @@ import org.webrise.subscription.model.Subscription;
 @Component
 public class SubscriptionMapper {
 
-    private SubscriptionListDto toSubscriptionListDto(Subscription subscription) {
+    public SubscriptionListDto toSubscriptionListDto(Subscription subscription) {
         return new SubscriptionListDto(
             subscription.getId(),
             subscription.getName(),
@@ -34,6 +34,7 @@ public class SubscriptionMapper {
             subscription.getCreatedAt(),
             subscription.getUpdatedAt(),
             subscription.getName(),
+            subscription.getDescription(),
             subscription.getPrice(),
             subscription.getDurationDays()
         );
@@ -55,6 +56,16 @@ public class SubscriptionMapper {
             .description(subscriptionUpdateDto.description())
             .price(subscriptionUpdateDto.price())
             .durationDays(subscriptionUpdateDto.durationDays())
+            .build();
+    }
+
+    public Subscription toSubscription(SubscriptionDto subscriptionDto) {
+        return Subscription.builder()
+            .id(subscriptionDto.id())
+            .name(subscriptionDto.name())
+            .description(subscriptionDto.description())
+            .price(subscriptionDto.price())
+            .durationDays(subscriptionDto.durationDays())
             .build();
     }
 }

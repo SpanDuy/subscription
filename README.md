@@ -1,15 +1,16 @@
-# Сервис управления подписками
+# Subscription Management Service
 
-## Требования
+## Requirements
 - JDK 17
+- Spring Boot 3.4.3
 - Maven
-- Docker и Docker Compose
+- Docker and Docker Compose
 
-## Конфигурация
-Перед запуском приложения необходимо настроить файл `.env` с переменными окружения.
-Создайте файл `.env` в корне проекта и укажите следующие переменные:
+## Configuration
+Before running the application, you need to configure the `.env` file with environment variables.
+Create an `.env` file in the project root with template from `.env.example` file.
 
-## Запуск приложения
+## Running the application
 
 ### Docker
 
@@ -24,3 +25,9 @@ Windows
 ```bash
 docker-compose up -d
 ```
+
+## Testing
+
+### Postman
+
+You can use the Postman collection file `subscription.postman_collection.json` in `doc` folder to test the API.

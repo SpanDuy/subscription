@@ -56,6 +56,11 @@ public class SubscriptionController {
         subscriptionService.deleteSubscription(id);
         return ResponseDto.success(null, "Subscription deleted successfully");
     }
+
+    @GetMapping("/top")
+    public ResponseDto<List<SubscriptionListDto>> getTopSubscriptions(@RequestParam(defaultValue = "3") Integer limit) {
+        return ResponseDto.success(subscriptionMapper.toSubscriptionListDto(subscriptionService.getTopSubscriptions(limit)));
+    }
     
 //    @GetMapping("/search/price")
 //    public ResponseEntity<List<Subscription>> getSubscriptionsByMaxPrice(
